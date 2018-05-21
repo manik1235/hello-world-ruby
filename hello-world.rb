@@ -77,4 +77,6 @@ books = {}
     # :quite_not_good → notably bad
     # :abyssmal → steaming wreck
 
+puts books
 books["Gravitys Rainbow"] = :splendid
+puts books
