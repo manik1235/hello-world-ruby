@@ -36,3 +36,45 @@ puts "ticket: \n" + ticket.to_s + "\n"
 puts ticket[0]
 puts ticket[1]
 puts ticket[2]
+
+## Summary #2
+
+# The given example variable:
+poem = """My toast has flown from my hand
+And my toast has gone to the moon.
+But when I saw it on television,
+Planting our flag on Halley's comet,
+More still did I want to eat it."""
+# Hey! triple quotes work in Ruby like they do in Python!
+
+puts poem + "\n\n"
+
+# Replaces all instances of "toast" with "honeydew". Global Substitute
+puts poem.gsub("toast", "honeydew") + "\n\n"
+
+# Replaces first instances of "toast" with "honeydew". Substitute
+puts poem.sub("toast", "honeydew") + "\n\n"
+
+puts poem.reverse + "\n\n"
+
+# Splits it into an array of the lines and reverses them. Joins a new line on to the end of each line in the array
+puts poem.lines.reverse.join("\n")
+
+# ruby docs for strings
+# http://ruby-doc.org/core-2.5.1/String.html
+
+## Summary #3
+
+# Empty Hash
+books = {}
+
+# Apparently multiline comments with =begin and =end are annoying in ruby, so use # at the beginning of each line.
+# Here’s our rating system:
+
+    # :splendid → a masterpiece
+    # :quite_good → enjoyed, sure, yes
+    # :mediocre → equal parts great and terrible
+    # :quite_not_good → notably bad
+    # :abyssmal → steaming wreck
+
+books["Gravitys Rainbow"] = :splendid
