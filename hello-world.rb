@@ -125,5 +125,12 @@ puts ratings
 5.times { print "Odelay! " } # The spaces before and after the {}'s are there by convention, apparently. 
 							 # A style guide would be nice to find. 
                # Here's the first result! https://github.com/bbatsov/ruby-style-guide
-               
-               
+
+# This outputs the memory location of the method, I think               
+puts 5.times
+
+5.times { |time|
+  puts time  
+}
+
+# Reached Summary #4
