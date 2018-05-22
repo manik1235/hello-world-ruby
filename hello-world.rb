@@ -71,11 +71,11 @@ books = {}
 # Apparently multiline comments with =begin and =end are annoying in ruby, so use # at the beginning of each line.
 # Here’s our rating system:
 
-    # :splendid → a masterpiece
-    # :quite_good → enjoyed, sure, yes
-    # :mediocre → equal parts great and terrible
-    # :quite_not_good → notably bad
-    # :abyssmal → steaming wreck
+  # :splendid → a masterpiece
+  # :quite_good → enjoyed, sure, yes
+  # :mediocre → equal parts great and terrible
+  # :quite_not_good → notably bad
+  # :abyssmal → steaming wreck
 
 puts books
 books["Gravitys Rainbow"] = :splendid
@@ -121,4 +121,9 @@ puts ratings
 # 	by one. I think the Hash.new {0} sets it as the default type to integers, because if I change it to {"0"} it throws
 #	an error about not being able to implicitly convert.
 
-
+# Ah so they're called 'Blocks'
+5.times { print "Odelay! " } # The spaces before and after the {}'s are there by convention, apparently. 
+							 # A style guide would be nice to find. 
+               # Here's the first result! https://github.com/bbatsov/ruby-style-guide
+               
+               
