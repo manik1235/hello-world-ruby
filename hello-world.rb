@@ -136,8 +136,21 @@ puts 5.times
 # Reached Summary #4
 
 # a simple method
-def tame( number_of_shrews )
+def tame_it( number_of_shrews )
   puts "Literally " + number_of_shrews.to_s
 end
 
-tame( 6 )
+tame_it( 6 )
+
+def tame( number_of_shrews )
+  number_of_shrews.times{
+    puts "Tamed a shrew"
+  }
+  # "return" is optional
+  # return number_of_shrews
+  # actually, this whole this is optional because ruby returns the last value used.
+  # number_of_shrews
+  # In this case, number_of_shrews.times
+end
+
+puts tame 5
