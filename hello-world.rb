@@ -134,3 +134,10 @@ puts 5.times
 }
 
 # Reached Summary #4
+
+# a simple method
+def tame( number_of_shrews )
+  puts "Literally " + number_of_shrews.to_s
+end
+
+tame( 6 )
