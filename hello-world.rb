@@ -79,4 +79,46 @@ books = {}
 
 puts books
 books["Gravitys Rainbow"] = :splendid
+# puts the whole hash
 puts books
+# puts just the rating of the given item
+puts books["Gravitys Rainbow"]
+
+# A colon in front of the word makes it a "symbol", which are cheaper than strings, because they're stored only once.
+books["The deep end"] = :abyssmal
+books["Living colors"] = :mediocre
+
+puts books
+puts books.length
+
+# Replace/update the rating for "Gravitys Rainbow"
+books["Gravitys Rainbow"] = :quite_not_good
+
+puts books
+puts books.length
+
+puts books.keys
+puts books.values
+# Appears to print the keys and values in the same order, but I'm doubting that's guaranteed...
+
+# Example books from "Are You Harsh?"
+# Either set works, just one is strings and one is symbols. Not sure why they chose one over the other.
+books = {"Gravitys Rainbow"=>"splendid", "The deep end"=>"abyssmal", "Living colors"=>"mediocre", "Bumblebees"=>"mediocre"}
+#books = {"Gravitys Rainbow"=>:splendid, "The deep end"=>:abyssmal, "Living colors"=>:mediocre, "Bumblebees"=>:mediocre}
+puts books
+
+ratings = Hash.new {0}
+
+books.values.each { |rate|
+	ratings[rate] += 1
+}
+
+puts ratings
+
+# From the lesson
+# Don’t worry if you don’t understand everything that is going on here. It will be revealed later.
+# I am very curious about the pipes... looks like; for each value in books, take that rating as the key to ratings. increase it
+# 	by one. I think the Hash.new {0} sets it as the default type to integers, because if I change it to {"0"} it throws
+#	an error about not being able to implicitly convert.
+
+
