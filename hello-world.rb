@@ -236,12 +236,14 @@ eat_an 'apple' if hungry?(10)
 # set symbols for certain parts
 class Blurb
   attr_accessor :content, :time, :mood
+  
+  def initialize(mood, content="")
+    @time = Time.now
+    @content = content[0..39]
+    @mood = mood
+  end
 end
 
-blurb1 = Blurb.new
-puts blurb1
-blurb1.content = "Today Mount Hood Was Stolen!"
-blurb1.time = Time.now
-blurb1.mood = :sick
+Blurb.new.time
 
-puts blurb1
+# Stopping at "You've Taught Your App to Reject Worthless Things"
