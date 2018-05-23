@@ -169,3 +169,42 @@ s["William Shakespeare"].each { |key, val|
   puts key
   puts val["title"]
 }
+  
+# Lots of chaining of methods
+def count_plays(year)
+  s = get_shakey["William Shakespeare"]
+    .select { |k, v|
+      v["finished"] == year
+    }.each { |key, val|
+      puts val["title"]
+    }.count
+end
+
+puts count_plays(1591)
+
+# Adding variables inside of a string, pretty printing
+def print_plays(year_from, year_to)
+  get_shakey["William Shakespeare"]
+    .select { |k, v|
+      year_from <= v["finished"] &&
+      year_to   >= v["finished"]
+    }.each { |k, v|
+      puts "#{v["title"].ljust(30)} #{v["finished"]}"
+    }
+end
+print_plays(1600, 1605)
+
+# Adding variables inside of a string, pretty printing, and changing the way it prints
+def print_plays(year_from, year_to)
+  get_shakey["William Shakespeare"]
+    .select { |k, v|
+      year_from <= v["finished"] &&
+      year_to   >= v["finished"]
+    }.each { |k, v|
+      puts "#{v["finished"]} -> #{v["title"]}"
+    }
+end
+print_plays(1600, 1605)
+
+# some good control expression docs
+# http://ruby-doc.org/core-2.5.1/doc/syntax/control_expressions_rdoc.html
