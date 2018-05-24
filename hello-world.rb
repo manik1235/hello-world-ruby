@@ -234,6 +234,14 @@ eat_an 'apple' if hungry?(10)
 # it appears that class names starting with a capital letter are enforced.
 
 # set symbols for certain parts
+# the @ symbol references internal variables/symbols.
+# The @ symbol allows me to access and modify the class level
+# variables defined in the attr_accessor line.
+# if i change it to ":moody" instead of ":mood" the error also
+# suggests I made a typo!
+# hello-world.rb:255:in `<main>': undefined method `mood' for  #<Blurb:0x0000000002fff0f8> (NoMethodError)
+# Did you mean?  moody
+
 class Blurb
   attr_accessor :content, :time, :mood
   
@@ -241,6 +249,22 @@ class Blurb
     @time = Time.now
     @content = content[0..39]
     @mood = mood
+  end
+  
+  def moodify
+    if @mood == :sad
+      return ":-{"
+    elsif @mood == :happy
+      return ":-)"
+    elsif @mood == :confused
+      return "X-("
+    elsif @mood == :satisfied
+      return ":-3"
+    # Add other moods here
+    end
+    
+    # The default mood
+    ":-|"
   end
 end
 
@@ -252,3 +276,45 @@ Blurb2 = Blurb.new :confused, "I can not believe Mt. Hood was stolen!"
 
 puts Blurb2.content
 puts Blurb2.mood
+
+# At summary #7!
+# "Your own Turf"
+
+class Blurbalizer
+  def initialize(title)
+    @title = title
+    @blurbs = []  # A fresh clean array
+                  # for storing Blurbs
+  end
+  
+  def add_a_blurb(mood, content)
+    # The << means add to the end of the array
+    @blurbs << Blurb.new(mood, content)
+  end
+  
+  def show_timeline
+    puts "Blurbify: #{@title} has #{@blurbs.count} Blurbs"
+    
+    @blurbs.sort_by { |tt| # this |variable| is independent of the next |t|
+      # tt.content.length # sort by length instead of time
+      tt.time # perhaps the time stamps are all too close, the sorting doesn't seem quite right.
+    }.reverse.each { |t| # The reverse method makes it print reverse-chronologically, because that's how the sort_by method is doing.
+      puts "#{t.moodify} #{t.content.ljust(40)} #{t.time}"
+    }
+  end
+end
+
+myapp = Blurbalizer.new "The Big Blurb"
+
+myapp.add_a_blurb :moody, "Add Blurb here"
+myapp.add_a_blurb :happy, "Dogs make pizza for orphans"
+myapp.add_a_blurb :confused, "Cats prod cattle."
+myapp.add_a_blurb :satisfied, "Don't cry for me, Argentina. I'm out."
+
+
+
+myapp.show_timeline
+
+# Finished up to Summary #8!
+
+# Thanks TryRuby! looks like a decent foundation. Let's get to rails!!
