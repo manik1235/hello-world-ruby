@@ -244,6 +244,11 @@ class Blurb
   end
 end
 
-Blurb.new.time
+# Blurb.new.time
 
 # Stopping at "You've Taught Your App to Reject Worthless Things"
+
+Blurb2 = Blurb.new :confused, "I can not believe Mt. Hood was stolen!"
+
+puts Blurb2.content
+puts Blurb2.mood
