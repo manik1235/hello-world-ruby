@@ -208,3 +208,42 @@ print_plays(1600, 1605)
 
 # some good control expression docs
 # http://ruby-doc.org/core-2.5.1/doc/syntax/control_expressions_rdoc.html
+
+def hungry?(time_of_day_in_hours)
+  if time_of_day_in_hours < 12
+    puts "Me not hungry."
+	false
+  else
+    puts "Me hungry."
+    true
+  end
+end
+
+def eat_an(what)
+  puts "Me eat #{what}.\n"
+end
+
+eat_an 'apple' if hungry?(14)
+
+eat_an 'apple' if hungry?(10)
+
+# Finished through summary #6
+
+# starting on classes!
+# Blurbalizer
+# it appears that class names starting with a capital letter are enforced.
+
+# set symbols for certain parts
+class Blurb
+  attr_accessor :content, :time, :mood
+  
+  def initialize(mood, content="")
+    @time = Time.now
+    @content = content[0..39]
+    @mood = mood
+  end
+end
+
+Blurb.new.time
+
+# Stopping at "You've Taught Your App to Reject Worthless Things"
